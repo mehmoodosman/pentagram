@@ -39,7 +39,11 @@ export async function POST(request: Request) {
     });
   } catch (error) {
     return NextResponse.json(
-      { success: false, error: "Failed to process request" },
+      {
+        success: false,
+        error: "Failed to process request",
+        message: error?.toString(),
+      },
       { status: 500 }
     );
   }

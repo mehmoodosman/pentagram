@@ -29,7 +29,7 @@ export async function POST(request: Request) {
       const errorText = await response.text();
       console.error("API Response:", errorText);
       throw new Error(
-        `HTTP error! status: ${response.status}, message: $(errorText)`
+        `HTTP error! status: ${response.status}, message: ${errorText}`
       );
     }
 

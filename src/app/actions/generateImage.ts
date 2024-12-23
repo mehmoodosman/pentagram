@@ -2,14 +2,17 @@
 
 export async function generateImage(text: string) {
   try {
-    const response = await fetch(`http://localhost:3000/api/generate-image`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "X-API-KEY": process.env.MODAL_API_KEY || "",
-      },
-      body: JSON.stringify({ text }),
-    });
+    const response = await fetch(
+      `https://pentagram-green.vercel.app/api/generate-image`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-API-KEY": process.env.MODAL_API_KEY || "",
+        },
+        body: JSON.stringify({ text }),
+      }
+    );
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);

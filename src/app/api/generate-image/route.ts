@@ -13,12 +13,10 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    // TODO: Call your Image Generation API here
-    // For now, we'll just echo back the text
     console.log(text);
 
     const url = new URL(
-      "https://mehmoodosman--dreamlike-anime-demo-model-generate.modal.run/"
+      "https://mehmoodosman--flux-midjourney-model-generate.modal.run/"
     );
 
     url.searchParams.set("prompt", text);

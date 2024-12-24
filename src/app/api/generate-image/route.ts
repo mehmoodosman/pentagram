@@ -18,7 +18,7 @@ export async function POST(request: Request) {
     console.log(text);
 
     const url = new URL(
-      "https://mehmoodosman--sd-demo-model-generate.modal.run/"
+      "https://mehmoodosman--dreamlike-anime-demo-model-generate.modal.run/"
     );
 
     url.searchParams.set("prompt", text);

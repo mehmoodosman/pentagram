@@ -29,7 +29,7 @@ export async function POST(request: Request) {
       method: "GET",
       headers: {
         "X-API-KEY": process.env.MODAL_API_KEY || "",
-        Accept: "image/jpeg",
+        Accept: "image/jpg", // Image Format
       },
     });
 
@@ -47,7 +47,7 @@ export async function POST(request: Request) {
 
     const blob = await put(filename, imageBuffer, {
       access: "public",
-      contentType: "image/jpeg",
+      contentType: "image/jpg", // Image Format
     });
 
     return NextResponse.json({

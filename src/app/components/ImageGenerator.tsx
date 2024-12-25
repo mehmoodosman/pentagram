@@ -52,10 +52,6 @@ export default function ImageGenerator({ generateImage }: ImageGeneratorProps) {
   return (
     <div className="min-h-screen flex flex-col justify-between p-4 sm:p-8 bg-background">
       <main className="flex-1 flex flex-col items-center gap-6 sm:gap-8 max-w-4xl mx-auto w-full">
-        <h1 className="text-2xl sm:text-3xl font-semibold text-center mb-4">
-          Generate AI Images
-        </h1>
-
         {error && (
           <div className="w-full max-w-2xl p-4 bg-red-50/90 backdrop-blur-sm border border-red-200 rounded-2xl text-red-800 dark:bg-red-900/90 dark:text-red-100 shadow-sm">
             {error}

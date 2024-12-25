@@ -65,7 +65,7 @@ export default function ImageGenerator({ generateImage }: ImageGeneratorProps) {
             <img
               src={imageUrl}
               alt="Generated Image"
-              className="w-full h-full"
+              className="w-full h-full object-cover object-center rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300 ease-in-out bg-black dark:bg-white dark:filter dark:brightness-90 dark:contrast-110 dark:grayscale dark:blur-[2px] dark:drop-shadow-[0 0 10px #000] dark:rounded-lg dark:ring-2 dark:ring-white dark:ring-opacity-10 dark:ring-offset-2 dark:ring-offset-black dark:ring-offset-opacity-20 dark:ring-offset-blur-[2px] dark:ring-offset-spread-[2px] dark:ring-inset dark:ring-inset-black dark:ring-inset-opacity-20 dark:ring-inset-blur-[2px] dark:ring-inset-spread-[2px] dark:ring-inset-offset-[2px] dark:ring-inset-offset-black dark:ring-inset-offset-opacity-20 dark:ring-inset-offset-blur-[2px] dark:ring-inset-offset-spread-[2px] dark:ring-inset-offset-blur-[2px] dark:ring-inset-offset-spread-[2px]"
             />
           </div>
         )}

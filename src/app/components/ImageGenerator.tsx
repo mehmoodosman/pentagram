@@ -65,7 +65,7 @@ export default function ImageGenerator({ generateImage }: ImageGeneratorProps) {
             <img
               src={imageUrl}
               alt="Generated Image"
-              className="w-full h-full"
+              className="w-full h-auto max-h-[80vh] object-contain"
             />
           </div>
         )}

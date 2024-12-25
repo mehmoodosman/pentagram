@@ -50,44 +50,76 @@ export default function ImageGenerator({ generateImage }: ImageGeneratorProps) {
   };
 
   return (
-    // TODO: Update the UI here to show the images generated
+    <div className="min-h-screen flex flex-col justify-between p-4 sm:p-8 bg-background">
+      <main className="flex-1 flex flex-col items-center gap-6 sm:gap-8 max-w-4xl mx-auto w-full">
+        <h1 className="text-2xl sm:text-3xl font-semibold text-center mb-4">
+          Generate AI Images
+        </h1>
 
-    <div className="min-h-screen flex flex-col justify-between p-8">
-      <main className="flex-1 flex flex-col items-center gap-8">
         {error && (
-          <div className="w-full max-w-2xl p-4 bg-red-50 border border-red-200 rounded-lg text-red-800 dark:bg-red-900 dark:text-red-100">
+          <div className="w-full max-w-2xl p-4 bg-red-50/90 backdrop-blur-sm border border-red-200 rounded-2xl text-red-800 dark:bg-red-900/90 dark:text-red-100 shadow-sm">
             {error}
           </div>
         )}
 
         {imageUrl && (
-          <div className="w-full max-w-2xl rounded-lg overflow-hidden shadow-lg">
+          <div className="w-full max-w-2xl aspect-[704/832] rounded-2xl overflow-hidden shadow-xl transition-all">
             <img
               src={imageUrl}
               alt="Generated Image"
-              className="w-full h-full object-cover object-center rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300 ease-in-out"
+              className="w-full h-full object-cover object-center rounded-2xl transition duration-300 ease-out hover:scale-102"
+              style={{ aspectRatio: "704/832" }}
             />
+          </div>
+        )}
+
+        {!imageUrl && !error && (
+          <div className="w-full max-w-2xl aspect-[704/832] rounded-2xl bg-black/[.03] dark:bg-white/[.03] border-2 border-dashed border-black/10 dark:border-white/10 flex items-center justify-center">
+            <p className="text-foreground/50 text-center px-4">
+              Your generated image will appear here
+            </p>
           </div>
         )}
       </main>
 
-      <footer className="w-full max-w-3xl mx-auto">
+      <footer className="w-full max-w-3xl mx-auto mt-6 sm:mt-8 sticky bottom-4 sm:bottom-8">
         <form onSubmit={handleSubmit} className="w-full">
-          <div className="flex gap-2">
+          <div className="flex gap-2 p-2 bg-white/80 dark:bg-black/80 backdrop-blur-xl rounded-2xl shadow-lg border border-black/5 dark:border-white/10">
             <input
               type="text"
               value={inputText}
               onChange={e => setInputText(e.target.value)}
-              className="flex-1 p-3 rounded-lg bg-black/[.05] dark:bg-white/[.06] border border-black/[.08] dark:border-white/[.145] focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white"
+              className="flex-1 p-4 rounded-xl bg-black/[.03] dark:bg-white/[.06] border border-black/[.08] dark:border-white/[.12] focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 placeholder-black/40 dark:placeholder-white/40 transition-all"
               placeholder="Describe the image you want to generate..."
               disabled={isLoading}
             />
             <button
               type="submit"
               disabled={isLoading}
-              className="px-6 py-3 rounded-lg bg-foreground text-background hover:bg-[#383838] dark:hover:bg-[#ccc] transition-colors disabled:opacity-50"
+              className="px-6 py-4 rounded-xl bg-blue-500 hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 text-white font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-sm"
             >
-              {isLoading ? "Generating..." : "Generate"}
+              {isLoading ? (
+                <span className="flex items-center gap-2">
+                  <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24">
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    />
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                    />
+                  </svg>
+                  Generating...
+                </span>
+              ) : (
+                "Generate"
+              )}
             </button>
           </div>
         </form>

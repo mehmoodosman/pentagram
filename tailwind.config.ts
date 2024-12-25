@@ -8,6 +8,12 @@ export default {
   ],
   theme: {
     extend: {
+      scale: {
+        "102": "1.02",
+      },
+      backdropBlur: {
+        xl: "20px",
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",

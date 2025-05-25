@@ -16,7 +16,7 @@ export async function POST(request: Request) {
     console.log(text);
 
     const url = new URL(
-      "https://mehmoodosman--dreamlike-anime-demo-model-generate.modal.run/"
+      "https://mehmoodosman--flux-midjourney-model-generate.modal.run"
     );
 
     url.searchParams.set("prompt", text);
